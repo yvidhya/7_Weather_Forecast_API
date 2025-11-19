@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>European 7-Day Weather Forecast</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<!-- External CSS -->
+<link rel="stylesheet" href="css/master.css">
+
+
+</head>
+<body>
+
+<header>
+  <h1>🌍 European 7-Day Weather Forecast</h1>
+  <p>Upload your city CSV (City,Country,Latitude,Longitude), pick a city, and click <strong>Get Forecast</strong>.</p>
+</header>
+
+<div class="controls" role="region" aria-label="controls">
+  <label for="csvFile">📂 Upload City CSV:</label>
+  <input id="csvFile" type="file" accept=".csv" />
+  
+  <label for="searchBox">🔍 Filter:</label>
+  <input id="searchBox" type="text" placeholder="Type city name...">
+
+  <label for="citySelect">🏙️</label>
+  <select id="citySelect"><option value="">-- Select a city --</option></select>
+  
+  <button id="getWeather">Get Forecast</button>
+</div>
+
+<div id="status" aria-live="polite"></div>
+
+<section id="forecast" aria-label="7 day forecast"></section>
+
+<footer>Powered by 7Timer API • Travel agency demo</footer>
+
+<!-- External JS -->
+<script src="main.js"></script>
+
+</body>
+</html>

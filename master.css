@@ -1,0 +1,153 @@
+/* General Layout */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #e3f2fd, #fff);
+  color: #222;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+header h1 {
+  font-size: 1.8rem;
+  color: #1565c0;
+}
+header p {
+  color: #444;
+  margin-top: 0.3rem;
+  font-size: 0.95rem;
+}
+
+/* Controls */
+.controls {
+  margin-top: 1.5rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.controls label {
+  font-weight: 600;
+  color: #1565c0;
+}
+
+.controls input[type="file"],
+.controls input[type="text"],
+.controls select {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #90caf9;
+  border-radius: 8px;
+  outline: none;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.controls input:focus,
+.controls select:focus {
+  border-color: #1565c0;
+}
+
+/* Button */
+button {
+  background: #1565c0;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+button:hover {
+  background: #0d47a1;
+  transform: scale(1.05);
+}
+
+/* Status Bar */
+#status {
+  margin-top: 1rem;
+  min-height: 1.5em;
+  font-weight: 600;
+  text-align: center;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Forecast Section */
+#forecast {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 1rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 1rem;
+  text-align: center;
+  width: 140px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+.card img {
+  width: 60px;
+  height: 60px;
+}
+.card h3 {
+  color: #1976d2;
+  margin-bottom: 0.5rem;
+}
+.card .small {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* Placeholder (when no city selected yet) */
+.placeholder {
+  margin-top: 2rem;
+  background: #e3f2fd;
+  border: 2px dashed #90caf9;
+  border-radius: 16px;
+  padding: 2rem 3rem;
+  text-align: center;
+  color: #1565c0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  animation: fadeIn 1s ease-in-out;
+}
+.placeholder p {
+  margin: 0;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 1rem;
+}
