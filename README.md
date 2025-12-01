@@ -1,5 +1,4 @@
-# 🌍 EuroWeather 7-Day Forecast – Developer Documentation
-**Summary**
+#  EuroWeather 7-Day Forecast – Developer Documentation
 A client-side weather forecast app that lets users upload European city datasets, search locations, use geolocation, and fetch 7-day forecasts via the 7Timer API—fully built in vanilla JS with optimized parsing, error handling, and UI rendering.
 
 ---
@@ -18,8 +17,9 @@ This documentation is meant for developers who want to understand how the app wo
 ---
 
 
-**Live Demo**
-<img width="1920" height="1020" alt="Screenshot 2025-11-19 212606" src="https://github.com/user-attachments/assets/10fd1629-b50d-4b02-9c3a-f51d914e3518" />
+### **Live Demo**
+  
+  <img width="1920" height="1020" alt="Screenshot 2025-11-19 212606" src="https://github.com/user-attachments/assets/10fd1629-b50d-4b02-9c3a-f51d914e3518" />
 
 ---
 
@@ -38,16 +38,16 @@ The app automatically parses the file and populates the city selector.
 ---
 **Features**
 
-### 🔹 **Smart Search & Auto-Filtering**
+- **Smart Search & Auto-Filtering**
 A live search bar filters city names instantly.
 
-### 🔹 **Geolocation Support**
+- **Geolocation Support**
 One click → Get a 7-day forecast for **your current location**.
 
-### 🔹 **Recent Cities Memory**
+- **Recent Cities Memory**
 Your last 5 viewed locations are stored locally and accessible as quick shortcuts.
 
-### 🔹 **Interactive Forecast Cards**
+- **Interactive Forecast Cards**
 Each daily forecast displays:
 - Weather icon  
 - Temperature range  
@@ -55,7 +55,7 @@ Each daily forecast displays:
 - Short description  
 - Day label (Mon, Tue…)  
 
-### 🔹 **Clean, Modern UI**
+- **Clean, Modern UI**
 ---
 
 **Tech Stack**  
@@ -94,7 +94,7 @@ http://localhost:8000
 
 ## How to Use the App
 
-### 1️⃣ Upload a City Dataset (CSV)
+- 1️ Upload a City Dataset (CSV)
 Sample CSV :
 
 
@@ -106,11 +106,11 @@ City,Country,Latitude,Longitude
 
 It auto-detects whether the file uses commas or semicolons and parses everything into an internal city list.
 
-### 2️⃣ Filter Cities
+- 2️ Filter Cities
 
 Type into the search bar and the dropdown filters in real time.
 
-### 3️⃣ Fetch Weather Data
+- 3️ Fetch Weather Data
 
 Click **Get Forecast** to display:
 
@@ -120,18 +120,15 @@ Click **Get Forecast** to display:
 * Human-readable weather descriptions
 * Day names with formatted dates
 
-### 4️⃣ Use Geolocation
+- 4️ Use Geolocation
 
 The **📍 My Location** button fetches your coordinates and displays the forecast for your current position.
 
-### 5️⃣ Recent Cities
+- 5️ Recent Cities
 
 The app stores up to 5 recently viewed cities using LocalStorage — a small UX improvement that makes the app feel more polished.
 
 ---
-**Live Demo**
-<img width="1920" height="1020" alt="Screenshot 2025-11-19 212606" src="https://github.com/user-attachments/assets/10fd1629-b50d-4b02-9c3a-f51d914e3518" />
-
 
 
 ## Project Structure
@@ -187,12 +184,12 @@ User-uploaded CSVs can be messy. This function ensures robustness.
 const delimiter = rows[0].includes(';') ? ';' : ',';
 ```
 
-**What I learned:**
+  **What I learned:**
 
-* Several CSVs use semicolons due to European locale settings
-* Missing headers needed graceful error messages
+  * Several CSVs use semicolons due to European locale settings
+  * Missing headers needed graceful error messages
 
----
+
 
 ### 2. fetchAndRender(lat, lon, cityName)
 
@@ -218,7 +215,6 @@ if (!resp.ok) throw new Error('HTTP ' + resp.status);
 * The API occasionally returns incomplete dataseries
 * Needed a good loading placeholder to avoid blank UI spots
 
----
 
 ### 3. renderForecast(dataseries, cityName)
 
@@ -234,7 +230,7 @@ This function transforms raw weather data into display cards.
 **What I found interesting:**
 Some entries include `timepoint` instead of a full date, so I built dynamic date estimation.
 
----
+
 
 ### 4. Recent Cities (localStorage)
 
@@ -244,8 +240,8 @@ A small feature that makes the app feel more “real world”.
 localStorage.setItem('recentCities', JSON.stringify(recentCities));
 ```
 
-**What I learned:**
-Persisting UI state improves usability far more than expected.
+  **What I learned:**
+  Persisting UI state improves usability far more than expected.
 
 ---
 
@@ -257,7 +253,7 @@ Some browsers disallow API fetch when opening HTML files directly.
 
 **Fix:** run a small server (`python -m http.server`).
 
----
+
 
 ### 2. Icon Loading Failures
 
@@ -269,7 +265,7 @@ If a weather code had no matching icon, the image broke.
 onerror="this.src='images/clear.png'"
 ```
 
----
+
 
 ### 3. Inconsistent API Fields
 
@@ -277,7 +273,7 @@ Some entries only had `temp2m` without separate `min/max` fields.
 
 **Fix:** Added fallback values.
 
----
+
 
 ### 4. CSVs with Encoding Issues
 
@@ -286,7 +282,7 @@ Some CSVs used Windows-1252 encoding.
 **My workaround:**
 Open in a spreadsheet → export as UTF-8.
 
----
+
 
 ## Performance Notes
 
@@ -314,11 +310,3 @@ Overall, the project is extremely efficient.
 **Vidhya Dhari**
 GitHub: [https://github.com/yvidhya](https://github.com/yvidhya)
 Email: [vidhyay458@gmail.com](mailto:vidhyay458@gmail.com)
-
----
-
-## ⭐ If you find this useful
-
-Please consider starring the repo — it motivates me to build more projects like this!
-
----
